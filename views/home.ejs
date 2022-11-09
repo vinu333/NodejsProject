@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script>
+  function myFunction(){
+    var x = document.getElementById('search').value;
+    console.log("hello");
+  window.location.href = "http://localhost:3000/articles/"+x;
+  }
+  </script>
+  <%- include('partials/header') %>
+<div class="container div_container">
+  <form action="/articles" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Article name</label>
+    <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+  </div>
+  <div class="mb-3">
+    <textarea class="form-control" name ="content" placeholder="Please add your article here" id="floatingTextarea"></textarea>
+
+  </div>
+
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
+</div>
+
+
+</html>

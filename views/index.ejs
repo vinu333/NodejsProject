@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<%- include('partials/header') %>
+<div style ="padding:1%"class="container">
+  <form action="/delete" method="POST">
+
+    <input type="submit" value="Delete All Articles">
+
+  </form>
+</div>
+
+<div class="container">
+
+<table class="table table-striped">
+  <tr><th>Article Name</th><th colspan="3">Content</th></tr>
+<% for(var i=0; i < data.length; i++) { %>
+   <tr>
+
+     <td><%= data[i].title %></td>
+      <td><%= data[i].content %></td>
+      <td> <a href="/articles/edit/<%= data[i].id %>">Edit</a> </td>
+      <td><form action="/articles/delete/<%= data[i].id %>" method="POST">
+
+        <input type="submit" value="Delete">
+
+      </form> </td>
+   </tr>
+<% } %>
+</table>
+</div>
+</body>
+</html>
